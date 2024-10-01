@@ -18,14 +18,13 @@ public class Main {
                     "3. Existência do caractere A \n" +
                     "4. Sair");
             Scanner ler = new Scanner(System.in);
-            opcao = ler.nextInt();
-            ler.nextLine();
+            opcao = lerInt(ler);
+
 
             switch (opcao) {
                 case 1:
                     System.out.println("Digite o número que você quer verificar se é Fibonacci");
-                    int number = ler.nextInt();
-                    ler.nextLine();
+                    int number = lerInt(ler);
                     isFibonacci(number);
                     System.out.println("-------------------------------------------\n\n\n");
                     break;
@@ -51,4 +50,15 @@ public class Main {
             }
         }
     }
+    public static int lerInt(Scanner sc) {
+        while (true) {
+            try {
+                return Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Você não digitou um número válido, tente novamente");
+            }
+        }
+    }
+    
+    
 }
